@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <StackPane fx:id="verkaufboard_stackpane" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="380.0" layoutY="7.0" style="-fx-font-size: 45; -fx-text-fill: #499097;" text="Verkaufboard" />
+                  <Label layoutX="418.0" layoutY="67.0" style="-fx-text-fill: #499097;" text="Liste der gefundenen Produkte" />
+                  <ScrollPane fx:id="verkauf_produkt_scrollpane" layoutX="8.0" layoutY="92.0" prefHeight="166.0" prefWidth="710.0" />
+                  <Label layoutX="14.0" layoutY="303.0" style="-fx-text-fill: #493fb5; -fx-font-size: 15;" text="Name" />
+                  <Label layoutX="272.0" layoutY="304.0" style="-fx-text-fill: #493fb5; -fx-font-size: 15;" text="Preis" />
+                  <Label layoutX="516.0" layoutY="304.0" style="-fx-text-fill: #493fb5; -fx-font-size: 15;" text="Marke" />
+                  <Label layoutX="313.0" layoutY="278.0" text="Je Mehr Angabe sie machen desto präziser wird der Produktsuche !" />
+                  <Label layoutX="218.0" layoutY="277.0" style="-fx-font-size: 17; -fx-font-weight: bold;" text="Wichtig:" />
+                  <TextField fx:id="verkauf_produkt_name" layoutX="95.0" layoutY="300.0" />
+                  <TextField fx:id="verkauf_produkt_preis" layoutX="326.0" layoutY="303.0" />
+                  <TextField fx:id="verkauf_produkt_marke" layoutX="606.0" layoutY="300.0" />
+                  <Button layoutX="770.0" layoutY="298.0" mnemonicParsing="false" onAction="#verkauf_produkt_such_funktion" prefHeight="32.0" prefWidth="169.0" style="-fx-background-color: #499097;" text="produkt suchen" />
+                  <Pane fx:id="verkauf_pane" layoutX="15.0" layoutY="400.0" prefHeight="295.0" prefWidth="195.0">
+                     <children>
+                        <Label fx:id="verkauf_menge_auswählen_info" layoutX="18.0" layoutY="37.0" style="-fx-text-fill: orange; -fx-font-size: 18; -fx-font-weight: bold;" />
+                        <TextField fx:id="verkauf_produkt_menge" disable="true" layoutX="48.0" layoutY="111.0" prefHeight="26.0" prefWidth="95.0" promptText="Zahl eingeben  zb: 22" />
+                        <Button fx:id="verkauf_hinzufugen_button" disable="true" layoutX="16.0" layoutY="191.0" mnemonicParsing="false" onAction="#Warenkob_hinzufügen_button_function" style="-fx-background-color: #499097; -fx-text-fill: white;" text="in Warenkob hinzufügen" />
+                     </children>
+                  </Pane>
+                  <ScrollPane fx:id="bestellung_ende_scrollpane1" layoutX="330.0" layoutY="400.0" prefHeight="122.0" prefWidth="668.0" />
+                  <ScrollPane fx:id="bestellung_ende_scrollpane2" layoutX="330.0" layoutY="533.0" prefHeight="115.0" prefWidth="668.0" />
+                  <Button fx:id="bestellung_drucken_button" disable="true" layoutX="606.0" layoutY="654.0" mnemonicParsing="false" onAction="#bestellung_drucken_function" prefHeight="32.0" prefWidth="183.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Bestellung drücken" />
+                  <Label layoutX="610.0" layoutY="360.0" style="-fx-font-size: 23; -fx-text-fill: Blue;" text="Bestellung" />
+                  <ImageView fx:id="verkauf_imageview_produkt" fitHeight="200.0" fitWidth="200.0" layoutX="755.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="803.0" layoutY="67.0" style="-fx-text-fill: #499097;" text="Bild des Produkts" />
+                  <ScrollPane fx:id="verkauf_scrollpane_rollback" layoutX="218.0" layoutY="443.0" prefHeight="166.0" prefWidth="108.0" />
+                  <Button fx:id="verkauf_rollback_button" disable="true" layoutX="246.0" layoutY="623.0" mnemonicParsing="false" onAction="#verkauf_rollback_function" style="-fx-font-size: 9; -fx-background-color: #499097; -fx-text-fill: white;" text="refresh" />
+                  <Label layoutX="236.0" layoutY="392.0" style="-fx-font-weight: bold; -fx-text-fill: red;" text="Stornierung" />
+                  <Label layoutX="222.0" layoutY="418.0" style="-fx-text-fill: green;" text="idProdukt wählen" />
+                  <Label layoutX="34.0" layoutY="25.0" style="-fx-text-fill: black; -fx-font-weight: bold;" text="Mitarbeiter:" />
+                  <Label fx:id="verkauf_name_mitarbeiter_label" layoutX="142.0" layoutY="25.0" style="-fx-text-fill: #499097;" />
+                  <Label layoutX="34.0" layoutY="58.0" style="-fx-text-fill: black; -fx-font-weight: bold;" text="Funktion:" />
+                  <Label fx:id="verkauf_funktion_mitarbeiter_label" layoutX="141.0" layoutY="56.0" style="-fx-text-fill: #499097;" />
+                  <Button layoutX="927.0" layoutY="20.0" mnemonicParsing="false" onAction="#verkauf_abmelden_button" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 9;" text="abmelden" />
+                  <Separator layoutY="349.0" prefHeight="5.0" prefWidth="1000.0" />
+                  <Separator layoutX="5.0" layoutY="81.0" prefHeight="5.0" prefWidth="353.0" />
+                  <Separator layoutX="355.0" layoutY="13.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="6.0" />
+                  <Separator layoutX="5.0" layoutY="10.0" prefHeight="5.0" prefWidth="353.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="statistik_stackpane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane prefHeight="700.0" prefWidth="1000.0">
+               <children>
+                  <DatePicker fx:id="statistik_datenpicker_verkaufe" layoutX="14.0" layoutY="153.0" />
+                  <Label layoutX="459.0" layoutY="31.0" style="-fx-font-size: 40; -fx-text-fill: #499097;" text="Statistik" />
+                  <Separator layoutX="6.0" layoutY="80.0" prefHeight="18.0" prefWidth="993.0" />
+                  <Label layoutX="54.0" layoutY="98.0" style="-fx-text-fill: #499097; -fx-font-size: 25;" text="Verkäufe" />
+                  <Pane fx:id="statistik_pane1" layoutX="14.0" layoutY="217.0" prefHeight="400.0" prefWidth="420.0" />
+                  <MenuButton layoutX="238.0" layoutY="152.0" mnemonicParsing="false" style="-fx-background-color: #499097;" text="Graphic" textFill="WHITE">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#statistik_barchart" text="Barchart" />
+                      <MenuItem mnemonicParsing="false" onAction="#statistik_scatterchart" text="Scatterchart" />
+                        <MenuItem mnemonicParsing="false" onAction="#statistik_linechart" text="LineChart" />
+                        <MenuItem mnemonicParsing="false" onAction="#statistik_areachart" text="AreaChart" />
+                    </items>
+                  </MenuButton>
+                  <Button fx:id="statistik_zur_Pverwaltung" layoutX="928.0" layoutY="14.0" mnemonicParsing="false" onAction="#statistik_zur_Pverwaltung_function" style="-fx-background-color: red; -fx-font-size: 10; -fx-text-fill: white;" text="Zur Produktverwaltung" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="registrierung_stackpane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <Pane prefHeight="700.0" prefWidth="1000.0">
+               <children>
+                  <ImageView fitHeight="620.0" fitWidth="636.0" layoutX="174.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icon-Registrieren-grün.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="292.0" layoutY="14.0" style="-fx-text-fill: blue; -fx-font-size: 35;" text="Mitarbeiter registrieren" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane layoutX="109.0" layoutY="117.0" opacity="0.94" prefHeight="500.0" prefWidth="783.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label layoutX="95.0" layoutY="202.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: White;" text="Nachname" />
+                        <Label layoutX="95.0" layoutY="290.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: White;" text="Email" />
+                        <Label layoutX="420.0" layoutY="202.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: White;" text="Passwort" />
+                        <Label layoutX="416.0" layoutY="114.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: White;" text="Telephone" />
+                        <Label layoutX="95.0" layoutY="114.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: White;" text="Vorname" />
+                        <TextField fx:id="vorname_person" layoutX="187.0" layoutY="111.0" />
+                        <TextField fx:id="telephone_person" layoutX="515.0" layoutY="111.0" />
+                        <TextField fx:id="nachname_person" layoutX="187.0" layoutY="199.0" />
+                        <TextField fx:id="email_person" layoutX="189.0" layoutY="287.0" />
+                        <MenuButton layoutX="416.0" layoutY="286.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="183.0" text="Funktion der Person">
+                          <items>
+                            <MenuItem fx:id="reg_person_menuitem1" mnemonicParsing="false" onAction="#reg_person_menuitem1" text="verkäufer" />
+                            <MenuItem fx:id="reg_person_menuitem2" mnemonicParsing="false" onAction="#reg_person_menuitem2" text="verkäufer und logistiker" />
+                          </items>
+                        </MenuButton>
+                        <Button layoutX="274.0" layoutY="376.0" mnemonicParsing="false" onAction="#person_registrieren_function" prefHeight="32.0" prefWidth="233.0" style="-fx-background-color: #0095f7; -fx-text-fill: white;" text="registrieren" />
+                        <Label fx:id="auswahl_reg_person_label" layoutX="610.0" layoutY="291.0" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+                        <PasswordField fx:id="passwort_person" layoutX="515.0" layoutY="199.0" />
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="799.0" layoutY="15.0" mnemonicParsing="false" onAction="#reg_logistik_button_function" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #499097; -fx-text-fill: white; -fx-font-size: 10;" text="Zur Stockverwaltung" />
+                  <Button layoutX="919.0" layoutY="15.0" mnemonicParsing="false" onAction="#reg_abmelden_button_function" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 10;" text="abmelden" />
+                  <Button layoutX="680.0" layoutY="15.0" mnemonicParsing="false" onAction="#reg_verkaufboard_button_function" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #499097; -fx-text-fill: white; -fx-font-size: 10;" text="zur Vekaufboard" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="produkt_verwaltung_stackpane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane prefHeight="700.0" prefWidth="1000.0">
+               <children>
+                  <MenuBar prefHeight="25.0" prefWidth="1000.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Options">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#produckt_registieren" text="neues Produkt registrieren" />
+                              <MenuItem mnemonicParsing="false" onAction="#stock_auffüllen" text="Stock auffüllen oder Produkt löschen" />
+                              <MenuItem mnemonicParsing="false" onAction="#bestand_zur_person_rg" text="zur Mitarbeiter registrierung" />
+                              <MenuItem mnemonicParsing="false" onAction="#bestand_abmelden_function" text="abmelden" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <Label layoutX="360.0" layoutY="43.0" text="Produktverwaltung" textFill="#499097">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="86.0" layoutY="135.0" text="NB: Produkt registrieren oder Stock auffüllen" textFill="#499097">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <StackPane layoutX="6.0" layoutY="192.0" prefHeight="500.0" prefWidth="500.0">
+                     <children>
+                        <StackPane fx:id="produkt_reg_pane" prefHeight="500.0" prefWidth="500.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c2ddd6;">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="98.0" text="Name" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="13.0" layoutY="141.0" text="Marke" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="17.0" layoutY="188.0" text="Preis" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="12.0" layoutY="280.0" text="Menge" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="340.0" text="Beschreibung" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="263.0" layoutY="98.0" text="Categorie" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="191.0" layoutY="14.0" text="Produktangaben" textFill="#499097">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="name" layoutX="72.0" layoutY="96.0" />
+                                    <TextField fx:id="marke" layoutX="72.0" layoutY="139.0" />
+                                    <TextField fx:id="preis" layoutX="72.0" layoutY="186.0" />
+                                    <TextField fx:id="menge" layoutX="72.0" layoutY="278.0" text=" " />
+                                    <Label layoutX="36.0" layoutY="233.0" text="hier Menge eingeben in der Form" />
+                                    <Label layoutX="34.0" layoutY="250.0" text="StückAnzahl zb:23 oder &quot;genug&quot; sagen  Fallls das Produkt unzählbar ist" />
+                                    <Label layoutX="269.0" layoutY="141.0" text="Gewicht" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea fx:id="beschreibung" layoutX="118.0" layoutY="340.0" prefHeight="106.0" prefWidth="353.0" text="können auch zusätzliche Eigenschaften des Produkts sein" />
+                                    <Label layoutX="15.0" layoutY="57.0" text="Anmerkung:" textFill="#8d7525">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="gewicht" layoutX="364.0" layoutY="139.0" prefHeight="25.0" prefWidth="99.0" />
+                                    <Label layoutX="105.0" layoutY="61.0" text="Sie müssen nicht alle Felder füllen!" />
+                                    <Button fx:id="reg_button" layoutX="166.0" layoutY="455.0" mnemonicParsing="false" onAction="#produckt_speichern" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: #499097;" text="speichern" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="269.0" layoutY="186.0" mnemonicParsing="false" onAction="#bild_function" style="-fx-background-color: #dd9726;" text="Produktbild auswählen" textFill="WHITE" />
+                                    <Label fx:id="produktbildsname" layoutX="269.0" layoutY="216.0" />
+                                    <MenuButton fx:id="categories" layoutX="364.0" layoutY="96.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Auswahl">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#nahrung_auswahl" text="Nahrung" />
+                                        <MenuItem mnemonicParsing="false" onAction="#gegenstand_auswahl" text="Gegenstand" />
+                                      </items>
+                                    </MenuButton>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="produkt_auf_pane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #e0c8c5;">
+                           <children>
+                              <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #e0dbda;">
+                                 <children>
+                                    <Label layoutX="8.0" layoutY="120.0" text="Name" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="265.0" layoutY="120.0" text="Marke" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="11.0" layoutY="160.0" text="Preis" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="name_bestand_ändern" layoutX="63.0" layoutY="118.0" />
+                                    <TextField fx:id="marke_bestand_ändern" layoutX="319.0" layoutY="118.0" />
+                                    <TextField fx:id="preis_bestand_ändern" layoutX="63.0" layoutY="158.0" />
+                                    <Button fx:id="bestand_ändern_such_button" disable="true" layoutX="264.0" layoutY="158.0" mnemonicParsing="false" onAction="#bestand_ändern_such_function" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #499097;" text="Produkt suchen" textFill="WHITE" />
+                                    <Label layoutX="98.0" layoutY="93.0" text="Je mehr angaben Sie geben desto präziser wird die Suche!" />
+                                    <Label layoutX="36.0" layoutY="92.0" text="Wichtig :" textFill="#fb8600">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fx:id="bestand_ändern_scrollpane" layoutX="2.0" layoutY="225.0" prefHeight="122.0" prefWidth="500.0" />
+                                    <Label layoutX="118.0" layoutY="198.0" text="Folgendes angezeigt ist das zu ändernde Produkt" />
+                                    <Label layoutX="9.0" layoutY="397.0" text="neuen Bestand " textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="9.0" layoutY="360.0" text="Falls das Produkt zählbar ist!" textFill="#ed0000" />
+                                    <Label layoutX="308.0" layoutY="360.0" text="Falls das Produkt unzählbar ist" textFill="RED" />
+                                    <Label layoutX="287.0" layoutY="397.0" text="neuer Bestand" textFill="#493fb5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="neubestand_auswahl" disable="true" layoutX="406.0" layoutY="395.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="wählen">
+                                      <items>
+                                        <MenuItem fx:id="bestand_genug" mnemonicParsing="false" onAction="#bestand_genug" text="genug" />
+                                        <MenuItem fx:id="bestand_leer" mnemonicParsing="false" onAction="#bestand_leer" text="leer" />
+                                      </items>
+                                    </MenuButton>
+                                    <TextField fx:id="neubestand" disable="true" layoutX="123.0" layoutY="395.0" onKeyReleased="#neubestandzahl" promptText="zb 234" />
+                                    <Button fx:id="bestand_ändern_button" disable="true" layoutX="103.0" layoutY="443.0" mnemonicParsing="false" onAction="#bestand_ändern_button" prefHeight="31.0" prefWidth="297.0" style="-fx-background-color: #493fb5;" text="gewählte Operation durchführen" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <RadioButton fx:id="produck_löschen_wahl" layoutX="175.0" layoutY="36.0" mnemonicParsing="false" onAction="#produkt_löschen_wahl_function" text="Produck_löschen">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton fx:id="bestand_auffüllen_wahl" layoutX="338.0" layoutY="36.0" mnemonicParsing="false" onAction="#bestand_auffüllen_wahl_function" text="Bestand_auffüllen">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <Label layoutX="6.0" layoutY="37.0" text="erstmal Action auswählen" textFill="#ff8c00">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children></StackPane>
+                        <Pane fx:id="Pane_bestand_ändern" prefHeight="500.0" prefWidth="500.0">
+                           <children>
+                              <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@einstllimage.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+                  <Label layoutX="669.0" layoutY="135.0" text="Datenbankproduktanzeige" textFill="#499097">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="573.0" layoutY="613.0" text="Suchbegriff" textFill="#493fb5">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="db_such_feld" layoutX="669.0" layoutY="611.0" onKeyPressed="#db_such_function_pressed" onKeyReleased="#db_such_function" prefHeight="25.0" prefWidth="320.0" />
+                  <ScrollPane fx:id="db_scroll_pane" layoutX="509.0" layoutY="192.0" prefHeight="370.0" prefWidth="488.0" />
+                  <Label layoutX="573.0" layoutY="586.0" text="Sie können nach &quot;Name,Marke,preis,beschreibung&quot; suchen" />
+                  <Label layoutX="573.0" layoutY="642.0" text=" Filter:" textFill="#493fb5">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <MenuButton layoutX="669.0" layoutY="648.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #dd9726;" text="filter" textFill="WHITE">
+                    <items>
+                      <MenuItem fx:id="leere_bestaende" mnemonicParsing="false" onAction="#leere_bestaende" text="leere Bestände" />
+                      <MenuItem fx:id="alle_produkte" mnemonicParsing="false" onAction="#alle_produkte" text="alle Produckte" />
+                    </items>
+                  </MenuButton>
+                  <Label layoutX="86.0" layoutY="163.0" text="NB: klicken Sie auf &quot;Options&quot; und wählen Sie" />
+                  <Button layoutX="909.0" layoutY="34.0" mnemonicParsing="false" onAction="#produktverwaltung_zur_statistik_function" style="-fx-background-color: #499097; -fx-font-size: 10; -fx-text-fill: white;" text="Statistik" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="homepage_stackpane" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(#DEB887, #D2691E);">
+               <children>
+                  <Pane layoutX="309.0" layoutY="209.0" prefHeight="295.0" prefWidth="420.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label layoutX="33.0" layoutY="65.0" style="-fx-text-fill: white;" text="Email" />
+                        <Label layoutX="35.0" layoutY="129.0" style="-fx-text-fill: white;" text="Passwort" />
+                        <Label layoutX="177.0" layoutY="14.0" style="-fx-font-size: 25; -fx-font-weight: bold; -fx-text-fill: white;" text="Anmeldung" />
+                        <TextField fx:id="homepage_email" layoutX="109.0" layoutY="62.0" prefHeight="26.0" prefWidth="268.0" />
+                        <Button layoutX="143.0" layoutY="203.0" mnemonicParsing="false" onAction="#homepage_einloggen_button_function" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #499097; -fx-text-fill: white;" text="einloggen" />
+                        <Label fx:id="homepage_fehlermeldung_label" layoutX="210.0" layoutY="254.0" />
+                        <PasswordField fx:id="homepage_passwort" layoutX="107.0" layoutY="125.0" prefHeight="26.0" prefWidth="268.0" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="886.0" layoutY="14.0" mnemonicParsing="false" onAction="#homepage_produktverwaltung_function" style="-fx-background-color: #499097; -fx-font-size: 10; -fx-text-fill: white;" text="Produktverwaltung" />
+                  <Button layoutX="776.0" layoutY="14.0" mnemonicParsing="false" onAction="#homepage_registrierung_button_function" style="-fx-background-color: #499097; -fx-text-fill: white; -fx-font-size: 10;" text="Registrierung" />
+                  <Label layoutX="395.0" layoutY="84.0" style="-fx-font-size: 80; -fx-text-fill: #499097;" text="SHOP" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>
